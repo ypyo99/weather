@@ -79,7 +79,7 @@ function App() {
       {weather && !error && (
         <>
           <WeatherCard data={weather} loading={loading} />
-          <MapComponent lat={weather.lat} lon={weather.lon} city={weather.city} onMapClick={loadWeatherDataByCoords} />
+          <MapComponent key={`${weather.lat}-${weather.lon}`} lat={weather.lat} lon={weather.lon} city={weather.city} onMapClick={loadWeatherDataByCoords} />
           <ForecastList groupedData={forecast} loading={loading} />
         </>
       )}
