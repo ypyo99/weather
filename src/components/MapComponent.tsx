@@ -36,7 +36,11 @@ const MapClickHandler: React.FC<{ onMapClick: (lat: number, lon: number) => void
 const MapUpdater: React.FC<{ lat: number; lon: number }> = ({ lat, lon }) => {
   const map = useMap();
   useEffect(() => {
-    map.setView([lat, lon], map.getZoom());
+    // 딱딱하게 바로 이동하는 대신, 새 도시로 부드럽게 날아가도록(flyTo) 변경합니다!
+    map.flyTo([lat, lon], map.getZoom(), {
+      animate: true,
+      duration: 1.5
+    });
   }, [lat, lon, map]);
   return null;
 };
