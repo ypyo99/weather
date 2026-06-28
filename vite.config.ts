@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/weather2/', // 👈 GitHub Pages 저장소(repository) 경로를 추가했습니다.
   plugins: [
     react(),
     {
